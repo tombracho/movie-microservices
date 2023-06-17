@@ -1,3 +1,6 @@
+# movie-microservices
+
+## Prerequisites
 Before launching the application, you need to have Docker and [Modd](https://github.com/cortesi/modd) (optional) installed on your machine.
 
 
