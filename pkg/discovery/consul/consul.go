@@ -52,7 +52,7 @@ func (r *Registry) Deregister(ctx context.Context, instanceID string, _ string) 
 }
 
 // ServiceAddresses returnes the list of addresses of active instances of the given service.
-func (r *Registry) ServiceAddresses(ctx context.Context, serviceName string) ([]string, error) {
+func (r *Registry) ServiceAdresses(ctx context.Context, serviceName string) ([]string, error) {
 	entries, _, err := r.client.Health().Service(serviceName, "", true, nil)
 	if err != nil {
 		return nil, err
