@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
 	"strconv"
 	"strings"
 
@@ -29,6 +30,7 @@ func NewRegistry(addr string) (*Registry, error) {
 
 // Register creates a service record in the registry.
 func (r *Registry) Register(ctx context.Context, instanceID string, serviceName string, hostPort string) error {
+	log.Printf("Regitering service %v on %v", instanceID, hostPort)
 	parts := strings.Split(hostPort, ":")
 	if len(parts) != 2 {
 		return errors.New("hostPort must be in a form of <host>:<port>, example: localhost:8081")
@@ -48,6 +50,7 @@ func (r *Registry) Register(ctx context.Context, instanceID string, serviceName 
 
 // Deregister removes a service record from the registry.
 func (r *Registry) Deregister(ctx context.Context, instanceID string, _ string) error {
+	log.Printf("Deregitering service %v", instanceID)
 	return r.client.Agent().ServiceDeregister(instanceID)
 }
 

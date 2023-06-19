@@ -9,13 +9,9 @@ import (
 	"movieexample.com/pkg/discovery"
 )
 
-type serviceName string
-type instanceID string
-
 // Registry defines an in-memory service registry.
 type Registry struct {
 	sync.RWMutex
-	//serviceAddrs map[serviceName]map[instanceID]*serviceInstance
 	serviceAddrs map[string]map[string]*serviceInstance
 }
 
@@ -26,7 +22,6 @@ type serviceInstance struct {
 
 // NewRegistry creates a new in-memory service registry instance.
 func NewRegistry() *Registry {
-	// return &Registry{serviceAddrs: map[serviceName]map[instanceID]*serviceInstance{}}
 	return &Registry{serviceAddrs: map[string]map[string]*serviceInstance{}}
 }
 
