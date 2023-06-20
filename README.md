@@ -12,7 +12,4 @@ docker run -d -p 8500:8500 -p 8600:8600/udp --name=dev-consul consul agent -serv
 ```
 
 ## Launching the application using modd
-Use the following command from the root directory of the project
-```shell
-modd
-```
+Use the `modd` command from the root directory of the project
